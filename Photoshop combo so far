@@ -1651,10 +1651,10 @@ void Ball(Image& primary,string &name){
                  (primary.width > primary.height)?primary.height:primary.width);
 
     // assign the half radius
-    int r = 0.5 * primary.width;
+    int r = 0.5 * image2.width;
 
-    for (int i = 0; i < primary.width; ++i) {
-        for (int j = 0; j < primary.height; ++j) {
+    for (int i = 0; i < image2.width; ++i) {
+        for (int j = 0; j < image2.height; ++j) {
             double ball = (sqrt((r * r  - (i - r)*(i - r)  - (j - r)*(j - r) )) / r);
             image2(i, j, 0) = primary(i, j, 0) * ball;
             image2(i, j, 1) = primary(i, j, 1) * ball;
