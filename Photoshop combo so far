@@ -55,7 +55,10 @@ string choice_load_save_2(string choice);
 bool is_number(string x);
 void Ball(Image& primary,string &name);
 void Pixelate(Image& primary,string &name);
-
+int square(int x);
+void rain_drop(Image& image, string& name);
+void skew(Image& image,string& name);
+float getValidFloatInput();
 int main() {
     fast
     // welcome user and ask him to load the primary via name and extension
@@ -123,7 +126,7 @@ void filter_choices(string filter_choice, Image& primary, string &name){
         detect_edge(primary,name);
     }
     else if (filter_choice == "11"){
-        resizing(primary, name);;
+        resizing(primary, name);
     }
     else if(filter_choice=="12"){
         Infra_Red(primary,name);
@@ -142,6 +145,12 @@ void filter_choices(string filter_choice, Image& primary, string &name){
     }
     else if(filter_choice=="17"){
         Pixelate(primary,name);
+    }
+    else if(filter_choice=="18"){
+        rain_drop(primary,name);
+    }
+    else if(filter_choice=="19"){
+        skew(primary,name);
     }
     else if (filter_choice == "23"){
         load_image(primary,name);
@@ -241,6 +250,8 @@ void filters_menu(Image & primary, string &name){
     cout<<"15. sunny filter" <<endl;
     cout<<"16. Ball filter"<<endl;
     cout<<"17. Pixelate filter"<<endl;
+    cout<<"18. Rain Drop filter"<<endl;
+    cout<<"19. Skew filter"<<endl;
     cout<<"23. Load a new primary image"<<endl;
     cout<<"24. Save the Image"<<endl;
     cout<<"25. Exit"<<endl<<endl;
@@ -1076,8 +1087,19 @@ void add_frame_to_image(Image& image,string& name) {
 
     cout << "Please enter the color of the frame (RGB values separated by spaces, e.g., '255 0 0' for red): "<<endl;
     for (int i = 0; i < 3; ++i) {
-        cin >> *(ptr_frame_color + i); // Read RGB values via pointer
-
+        cout<<"Enter colour number"<<i+1<<endl;
+        string x;
+        cin>>x;
+        while(true){
+            if(!is_number(x)|| stoi(x)>255 || stoi(x)<0){
+                cout<<"please enter a valid colour number from 0 to 255"<<endl;
+                cin>>x;
+            }
+            else{
+                *(ptr_frame_color + i)=stoll(x); // Read RGB values via pointer
+                break;
+            }
+        }
     }
 
 
@@ -1669,15 +1691,20 @@ void Pixelate(Image& primary,string &name){
     cout<<"Please enter slide_value from 1 to 200: "<<endl;
     string SlideValue;
     cin>>SlideValue;
-    while(!is_number(SlideValue) && (stoll(SlideValue)>200 || stoll(SlideValue)<1)){
-        cout<<"Please enter a value from 1 to 200: "<<endl;
-        cin>>SlideValue;
+    while(true){
+        if(!is_number(SlideValue)|| stoi(SlideValue)>200 || stoi(SlideValue)<1){
+            cout<<"please enter a number from 1 to 200 "<<endl;
+            cin>>SlideValue;
+        }
+        else{
+            break;
+        }
     }
-    //that means if we set it 200 it will get the pixels that it is average of all pixels
+    //that means if we set it 1000 it will get the pixels that it is average of all pixels
     // try more than value to understand
     Image image(primary);
     ll value=stoll(SlideValue);
-    int b = (value/200.0)*((image.width < image.height)? image.height: image.width);
+    int b = (value/1000.0)*((image.width < image.height)? image.height: image.width);
     for(int i=0;i<image.width;i+=b){
         for(int j=0;j<image.height;j+=b){
             int R=0,G=0,B=0,k = 0, l = 0;
@@ -1701,4 +1728,78 @@ void Pixelate(Image& primary,string &name){
         }
     }
     asking_for_saving(image,name);
+}
+int square(int x){return x*x;}
+void rain_drop(Image& image, string& name){
+    float coef = 100.0/((image.width<image.height)?image.width:image.height);
+    for(int i=0;i<image.width;++i){
+        for(int j=0;j<image.height;++j){
+            float c = coef * (sqrt(square(i-image.width/2)+ square(j-image.height/2)));
+            float z = .8 *( sin(c)/c + 0.24);
+            image(i,j,0) = (image(i,j,0)*z*3 >255)? 255:image(i,j,0)*z*3;
+            image(i,j,1) = (image(i,j,0)*z*3 >255)? 255:image(i,j,1)*z*3;
+            image(i,j,2) = (image(i,j,0)*z*3 >255)? 255:image(i,j,2)*z*3;
+        }
+    }
+    asking_for_saving(image,name);
+}
+void skew(Image& image,string& name){
+    cout<<"Please enter angle between -90 to 90 other than zero"<<endl;
+    double angle=getValidFloatInput();
+    if(angle<0){
+        //the angle for skewing
+        double ang=abs(angle);
+        ang=((ang)/180)*3.1416;
+        double slop=tan(ang);
+        Image image2(image.width + image.height * cos(ang),image.height * sin(ang));
+        //To print whole the height
+        double n = (float)image.height / image2.height;
+//skewed by one loop
+        for(int i=0;i<image2.width;++i){
+            for(int j=0;j<image2.height;++j){
+// we used adea of flip vertical that the library design depend on it. we made an equation for two straight lines -ve slop and fill the determinant part.
+                if((j>image2.height-slop*i) && ((j<image2.height -slop*(i - image.width)))){
+                    image2(i,j,0) = image(i-(image2.height-j)/slop,j*n,0);
+                    image2(i,j,1) = image(i-(image2.height-j)/slop,j*n,1);
+                    image2(i,j,2) = image(i-(image2.height-j)/slop,j*n,2);
+                }
+            }
+        }
+        asking_for_saving(image2,name);
+    }
+    else{
+        double ang=angle;
+        ang = (ang/180) * 3.1416;
+        double slop = tan(ang);
+        Image image2(image.width + image.height * cos(ang),image.height * sin(ang));
+        double n = (float)image.height/image2.height;
+        for(int i=0;i<image2.width;++i){
+            for(int j=0;j<image2.height;++j){
+                if((j<i*slop) && (j>slop*(i-image.width))){
+                    image2(i,j,0)=image((i-j/slop),j*n,0);
+                    image2(i,j,1)=image((i-j/slop),j*n,1);
+                    image2(i,j,2)=image((i-j/slop),j*n,2);
+                }
+            }
+        }
+        asking_for_saving(image2,name);
+    }
+}
+
+float getValidFloatInput() {
+    float input;
+    while (true) {
+        cin >> input;
+        // Check if the input is valid
+        if (cin.fail()) {
+            cin.clear(); // Clear the error flag
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+            cout << "Invalid input. Please enter a valid float value." << std::endl;
+        }else if(input<-90 || input>90 || input==90 || input==-90 || input==0){
+            cout << "Enter an angle between -90 to 90 other than zero: "<<endl;
+        } else {
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear any extra input
+            return input; // Valid float input
+        }
+    }
 }
