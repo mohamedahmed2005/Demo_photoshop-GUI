@@ -62,7 +62,7 @@ int main() {
     cout<<"Welcome to our primary filters application"<<endl<<endl;
     cout<<"Load your primary"<<endl;
     cout<<"Enter your primary name with a correct extension"<<endl;
-    cout<<".jpg or .bmp or .png or .jpeg: ";
+    cout<<".jpg or .bmp or .png or .jpeg: "<<endl;
     string image_name;
     getline(cin,image_name);
     Image primary;
@@ -296,25 +296,25 @@ void invert_image(Image& primary, string &name) {
 void rotate_image( Image& primary, string &name) {
     Image rotated_image(primary.height, primary.width); // declare this photo to 90 degree's photo
     string x,y;
-    cout<<"1: rotate by 90 degree\n";
-    cout<<"2: rotate by 180 degree\n";
-    cout<<"3: rotate by 270 degree\n";
-    cout<<"Enter your choice between 1&2&3: ";
+    cout<<"1: rotate by 90 degree"<<endl;
+    cout<<"2: rotate by 180 degree"<<endl;
+    cout<<"3: rotate by 270 degree"<<endl;
+    cout<<"Enter your choice between 1&2&3: "<<endl;
     cin>>x;
     while(x!="1"&&x!="2"&&x!="3"){
         cout<<"invalid choice\n";
-        cout<<"Enter your choice between 1&2&3: ";
+        cout<<"Enter your choice between 1&2&3: "<<endl;
         cin>>x;
     }
-    cout<<"1: begin rotation from right: \n";
-    cout<<"2: begin rotation from left: \n";
-    cout<<"Choose between 1&2: ";
+    cout<<"1: begin rotation from right: "<<endl;
+    cout<<"2: begin rotation from left: "<<endl;
+    cout<<"Choose between 1&2: "<<endl;
     cin>>y;
     while(y!="1"&&y!="2"){
-        cout<<"invalid choice\n";
-        cout<<"1: begin rotation from left: \n";
-        cout<<"2: begin rotation from right: \n";
-        cout<<"Choose between 1&2: ";
+        cout<<"invalid choice"<<endl;
+        cout<<"1: begin rotation from left: "<<endl;
+        cout<<"2: begin rotation from right: "<<endl;
+        cout<<"Choose between 1&2: "<<endl;
         cin>>y;
     }
     if(y=="1"){ // check to begin from left
@@ -435,7 +435,7 @@ void merge_image(Image& primary,string &name){
     cin.ignore();
     cout<<"Please load your second primary"<<endl;
     cout<<"Enter your primary name with a correct extension"<<endl;
-    cout<<".jpg or .bmp or .png or .jpeg: ";
+    cout<<".jpg or .bmp or .png or .jpeg: "<<endl;
     string image_name;
     getline(cin,image_name);
     Image secondary;
@@ -1218,8 +1218,8 @@ void crop(Image& primary, string &name){
     smatch matches;
     do{
         // get the choice if it from left or right or middle
-        cout << "please select\n1 to crop at middle\n2 to crop from top-left\n3 to crop from down-left\n4 to cut from top-right\n5 cut from down-right\n";
-        cout << "Enter your choice: ";
+        cout << "please select"<<endl<<"1 to crop at middle"<<endl<<"2 to crop from top-left"<<endl<< "3 to crop from down-left"<<endl<<"4 to cut from top-right"<<endl<<"5 cut from down-right"<<endl;
+        cout << "Enter your choice: "<<endl;
         cin >> choice;
         if(!(choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5")){
             cout << "Invalid input" << endl;
@@ -1236,7 +1236,7 @@ void crop(Image& primary, string &name){
     cin.ignore();
     do {
         // Prompt the user to enter the scale
-        cout << "Enter the size you want in (format: width*height):\n";
+        cout << "Enter the size you want in (format: width*height): "<<endl;
         getline(cin,scale);
 
         // Check if the input matches the regex pattern
@@ -1271,7 +1271,7 @@ void crop(Image& primary, string &name){
 
         do {
             // Prompt the user to enter the scale
-            cout << "Enter the starting point you want in (format: width*height):\n";
+            cout << "Enter the starting point you want in (format: width*height): "<<endl;
             getline(cin,point);
             // Check if the input matches the regex pattern
             if (!regex_search(point, pattern)) {
@@ -1450,7 +1450,7 @@ void load_image(Image& primary, string& name) {
     cout << endl << endl;
     cout << "Load your primary" << endl;
     cout << "Enter your primary name with a correct extension" << endl;
-    cout << ".jpg or .bmp or .png or .jpeg: ";
+    cout << ".jpg or .bmp or .png or .jpeg: "<<endl;
     string image_name;
     getline(cin, image_name);
 
@@ -1500,7 +1500,7 @@ void save_image(Image& primary,string& name){
             // save in new file
         else if (choice_1 == "2") {
             cout << "Enter your new primary name with correct extension" << endl;
-            cout << ".jpg or .bmp or .png or .jpeg: ";
+            cout << ".jpg or .bmp or .png or .jpeg: "<<endl;
             string Image_name;
             cin >> Image_name;
             Image_name = image_name_validate(Image_name, name);
@@ -1611,7 +1611,7 @@ void sunny_filter(Image& primary, string& name) {
     bool valid_input = false;
 
     while (!valid_input) {
-        cout << "Enter the yellow percentage degree that you want (0:100): ";
+        cout << "Enter the yellow percentage degree that you want (0:100): "<<endl;
         if (cin >> degree && degree > 0 && degree <= 100) {
             valid_input = true;
         } else {
