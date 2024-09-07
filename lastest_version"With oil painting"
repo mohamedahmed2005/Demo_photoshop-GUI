@@ -18,7 +18,7 @@ ahmd.mohamed200515@gmail.com
 
 system diagram link : https://drive.google.com/drive/folders/1hBaIyt5tXv7h1qtAeJwW8HEYiY32tMrz
 
-GitHub repo link: https://github.com/Amr-Khaled-Ahmed/Photo-editor
+GitHub repo link: https://github.com/mohamedahmed2005/Demo_photoshop-GUI
  */
 #include <bits/stdc++.h>
 #include "Image_Class.h"
