@@ -156,7 +156,7 @@ background-color: rgb(84, 80, 129);</string>
      <rect>
       <x>50</x>
       <y>100</y>
-      <width>93</width>
+      <width>92</width>
       <height>26</height>
      </rect>
     </property>
@@ -167,8 +167,8 @@ background-color: rgb(84, 80, 129);</string>
    <widget class="QCheckBox" name="checkBox_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>140</y>
+      <x>940</x>
+      <y>100</y>
       <width>111</width>
       <height>26</height>
      </rect>
@@ -181,7 +181,7 @@ background-color: rgb(84, 80, 129);</string>
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>180</y>
+      <y>140</y>
       <width>93</width>
       <height>26</height>
      </rect>
@@ -193,8 +193,8 @@ background-color: rgb(84, 80, 129);</string>
    <widget class="QCheckBox" name="checkBox_4">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>220</y>
+      <x>470</x>
+      <y>140</y>
       <width>93</width>
       <height>26</height>
      </rect>
@@ -233,7 +233,7 @@ background-color: rgb(84, 80, 129);</string>
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>180</y>
+      <y>220</y>
       <width>241</width>
       <height>26</height>
      </rect>
@@ -245,8 +245,8 @@ background-color: rgb(84, 80, 129);</string>
    <widget class="QCheckBox" name="checkBox_8">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>220</y>
+      <x>50</x>
+      <y>180</y>
       <width>93</width>
       <height>26</height>
      </rect>
@@ -271,9 +271,9 @@ background-color: rgb(84, 80, 129);</string>
    <widget class="QCheckBox" name="checkBox_10">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>140</y>
-      <width>121</width>
+      <x>770</x>
+      <y>100</y>
+      <width>117</width>
       <height>26</height>
      </rect>
     </property>
@@ -284,9 +284,9 @@ background-color: rgb(84, 80, 129);</string>
    <widget class="QCheckBox" name="checkBox_11">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>180</y>
-      <width>93</width>
+      <x>630</x>
+      <y>140</y>
+      <width>71</width>
       <height>26</height>
      </rect>
     </property>
@@ -297,14 +297,118 @@ background-color: rgb(84, 80, 129);</string>
    <widget class="QCheckBox" name="checkBox_12">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>220</y>
+      <x>770</x>
+      <y>140</y>
       <width>93</width>
       <height>26</height>
      </rect>
     </property>
     <property name="text">
      <string>Blur</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_13">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>180</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Purple</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_14">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>180</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Infra_Red</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_15">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>140</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sunny</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_16">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>180</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Oil_painting</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_17">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>180</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ball</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_18">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>180</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pixelate</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_19">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>100</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Rain_drop</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_20">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>220</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Skew</string>
     </property>
    </widget>
   </widget>
