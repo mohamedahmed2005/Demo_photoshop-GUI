@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1238</width>
-    <height>700</height>
+    <width>1259</width>
+    <height>709</height>
    </rect>
   </property>
   <property name="cursor">
@@ -411,13 +411,26 @@ background-color: rgb(84, 80, 129);</string>
      <string>Skew</string>
     </property>
    </widget>
+   <widget class="QToolButton" name="toolButton_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>620</y>
+      <width>91</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add image</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1238</width>
+     <width>1259</width>
      <height>25</height>
     </rect>
    </property>
