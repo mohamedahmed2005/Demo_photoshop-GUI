@@ -8,7 +8,7 @@ youssefamgadelkhatib@gmail.com
 
 2. Amr Khaled Ahmed Abd Al Hamid Mohamed
 Emails:
-yy171516@gmail.com
+amr171516@gmail.com
 11410120231116@stud.cu.edu.eg
 
 3. Mohamed Ahmed Mohamed Abd Al Wahab
@@ -18,7 +18,7 @@ ahmd.mohamed200515@gmail.com
 
 system diagram link : https://drive.google.com/drive/folders/1hBaIyt5tXv7h1qtAeJwW8HEYiY32tMrz
 
-GitHub repo link: https://github.com/Amr-Khaled-Ahmed/Photo-editor
+GitHub repo link: https://github.com/mohamedahmed2005/Demo_photoshop-GUI
  */
 #include <bits/stdc++.h>
 #include "Image_Class.h"
@@ -43,22 +43,30 @@ void resizing(Image& primary, string &name);
 void detect_edge(Image& primary, string& name);
 void blurImage(Image& primary,string& name);
 void sunny_filter(Image& primary,string& name);
+void oil_painting(Image& primary,string& name);
+void resize2_image(int new_width ,int new_height,Image& image);
 void filter_choices(string filter_choice, Image& primary, string &name);
 void filters_menu(Image & primary, string &name);
 void asking_for_saving(Image& primary, string &name);
 void save_image(Image& primary,string& name);
 void load_image(Image& primary, string& name);
+void Cardiod(Image& image2,string &name);
+void center_light(Image& image,string & name);
+void rotate_frame(Image& image, string &name);
 string valid_choice(string filter_choice);
 string image_name_validate(string name,string& Image_name);
 string choice_load_save(string choice);
 string choice_load_save_2(string choice);
 bool is_number(string x);
+bool validate_center_light(float num);
 void Ball(Image& primary,string &name);
 void Pixelate(Image& primary,string &name);
+void Egg(Image& primary,string &name);
 int square(int x);
 void rain_drop(Image& image, string& name);
 void skew(Image& image,string& name);
 float getValidFloatInput();
+bool validate_rotate_frame(float num);
 int main() {
     fast
     // welcome user and ask him to load the primary via name and extension
@@ -152,14 +160,29 @@ void filter_choices(string filter_choice, Image& primary, string &name){
     else if(filter_choice=="19"){
         skew(primary,name);
     }
-    else if (filter_choice == "23"){
-        load_image(primary,name);
+    else if(filter_choice=="20"){
+        oil_painting(primary,name);
+    }
+    else if(filter_choice=="21"){
+        Egg(primary,name);
+    }
+    else if(filter_choice=="22"){
+        Cardiod(primary,name);
+    }
+    else if(filter_choice=="23"){
+        center_light(primary,name);
     }
     else if(filter_choice=="24"){
+        rotate_frame(primary,name);
+    }
+    else if (filter_choice == "26"){
+        load_image(primary,name);
+    }
+    else if(filter_choice=="27"){
         save_image(primary,name);
         filters_menu(primary,name);
     }
-    else if(filter_choice=="25"){
+    else if(filter_choice=="28"){
         save_image(primary,name);
         cout<<"Thanks for using our primary filters application"<<endl;
         exit(0);
@@ -194,6 +217,9 @@ string valid_choice(string filter_choice){
         else if(filter_choice == "23")break;
         else if(filter_choice == "24")break;
         else if(filter_choice == "25")break;
+        else if(filter_choice == "26")break;
+        else if(filter_choice == "27")break;
+        else if(filter_choice == "28")break;
         else{
             cout<<"Please enter a valid choice"<<endl;
             cin>>filter_choice;
@@ -252,9 +278,14 @@ void filters_menu(Image & primary, string &name){
     cout<<"17. Pixelate filter"<<endl;
     cout<<"18. Rain Drop filter"<<endl;
     cout<<"19. Skew filter"<<endl;
-    cout<<"23. Load a new primary image"<<endl;
-    cout<<"24. Save the Image"<<endl;
-    cout<<"25. Exit"<<endl<<endl;
+    cout<<"20. Oil painting"<<endl;
+    cout<<"21. Egg filter"<<endl;
+    cout<<"22. Heart filter"<<endl;
+    cout<<"23. Center light"<<endl;
+    cout<<"24. Rotate frame"<<endl;
+    cout<<"26. Load a new primary image"<<endl;
+    cout<<"27. Save the Image"<<endl;
+    cout<<"28. Exit"<<endl<<endl;
     cout<<"Please enter your filter choice: "<<endl;
     string filter_choice;
     cin>>filter_choice;
@@ -1118,7 +1149,7 @@ void detect_edge(Image& primary, string& name){
 
     for(int i=0; i<primary.width; i++){
         for(int j=0; j<primary.height; j++){
-           unsigned int avg = 0;
+            unsigned int avg = 0;
             for (int k = 0; k < primary.channels; k++)
                 avg +=primary(i, j, k);
 
@@ -1785,7 +1816,84 @@ void skew(Image& image,string& name){
         asking_for_saving(image2,name);
     }
 }
+void resize2_image(int new_width ,int new_height,Image& primary) {
+    double x = double(primary.width) / new_width;
+    double y = double(primary.height) / new_height;
+    Image resized(new_width, new_height);
+    for (int i = 0; i < new_width; ++i) {
+        for (int j = 0; j < new_height; ++j) {
+            for (int k = 0; k < 3; ++k) {
+                resized(i, j, k) = primary(ceil(i * x), ceil(j * y), k);
+            }
+        }
+    }
+    primary.width = new_width;
+    primary.height = new_height;
+    for (int i = 0; i < primary.width; ++i) {
+        for (int j = 0; j < primary.height; ++j) {
+            for (int k = 0; k < 3; ++k) {
+                primary(i, j, k) = resized(i, j, k);
+            }
+        }
+    }
+}
+void oil_painting(Image& primary,string& name){
+    int width = primary.width;
+    int height = primary.height ;
+    if (width > 1000 || height > 1000){
+        resize2_image(1000,1000,primary);
+    }
+    double intensity_level = 5; // Intensity levels used for effect
+    int radius = 2; // Radius of 2 for 5x5 neighborhood
+    int intensity_size = 256; // Maximum intensity value (0-256)
 
+    for (int i = radius; i < primary.width - radius; ++i) {
+        for (int j = radius; j < primary.height - radius; ++j) {
+
+            vector<int> cur_intensity_count(intensity_size, 0);
+            vector<int> average_R(intensity_size, 0);
+            vector<int> average_G(intensity_size, 0);
+            vector<int> average_B(intensity_size, 0);
+
+            for (int k = i - radius; k <= i + radius; ++k) {
+                for (int l = j - radius; l <= j + radius; ++l) {
+                    // Calculate intensity for the current pixel
+                    int R = primary(k, l, 0);
+                    int G = primary(k, l, 1);
+                    int B = primary(k, l, 2);
+                    int cur_intensity = (int)((double)((R + G + B) / 3) * intensity_level) / 255;
+
+                    // Safeguard for intensity bounds
+                    cur_intensity = max(0, min(255, cur_intensity));
+
+                    // Update intensity count and sum of RGB values
+                    cur_intensity_count[cur_intensity]++;
+                    average_R[cur_intensity] += R;
+                    average_G[cur_intensity] += G;
+                    average_B[cur_intensity] += B;
+                }
+            }
+
+            // Find the intensity with the maximum count
+            int mx_intensity_count = 0, mx_intensity_index = 0;
+            for (int M = 0; M < intensity_size; ++M) {
+                if (cur_intensity_count[M] > mx_intensity_count) {
+                    mx_intensity_count = cur_intensity_count[M];
+                    mx_intensity_index = M;
+                }
+            }
+
+            // Assign the average RGB values to the output image
+            if (mx_intensity_count > 0) {
+                primary(i, j, 0) = average_R[mx_intensity_index] / mx_intensity_count;
+                primary(i, j, 1) = average_G[mx_intensity_index] / mx_intensity_count;
+                primary(i, j, 2) = average_B[mx_intensity_index] / mx_intensity_count;
+            }
+        }
+    }
+    resize2_image(width,height,primary);
+    asking_for_saving(primary,name);
+}
 float getValidFloatInput() {
     float input;
     while (true) {
@@ -1795,11 +1903,166 @@ float getValidFloatInput() {
             cin.clear(); // Clear the error flag
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
             cout << "Invalid input. Please enter a valid float value." << std::endl;
-        }else if(input<-90 || input>90 || input==90 || input==-90 || input==0){
+        }
+        else if(input<-90 || input>90 || input==90 || input==-90 || input==0){
             cout << "Enter an angle between -90 to 90 other than zero: "<<endl;
-        } else {
+        }
+        else {
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear any extra input
             return input; // Valid float input
         }
     }
+}
+
+void Egg(Image& image,string &name){
+    Image image2(image.width,image.height);
+    int a=image.width>>1;
+    int b=image.height>>1;
+    float a2=a*a;
+    float b2=b*b;
+    float d,d2;
+    for(int i=0;i<image.width;++i){
+        d=image.height*sqrt(1-(i-a)/a2);
+        for(int j=0;j<image.height;++j){
+            if(square(j-b)/b2 + square(i-a)/a2 >1){
+                image2(i,j,0)=0;
+                image2(i,j,1)=0;
+                image2(i,j,2)=0;
+            }
+            else{
+                if(d)
+                    d2=(j+(b* sqrt(1- square(i-a)/a2)-b))/d;
+                image2(i,j,0)=image(i,d2*image.height,0);
+                image2(i,j,1)=image(i,d2*image.height,1);
+                image2(i,j,2)=image(i,d2*image.height,2);
+            }
+        }
+    }
+    asking_for_saving(image2,name);
+}
+void Cardiod(Image& image2,string &name){
+    Image image(1000,1000);
+    double d1=image2.width/1000.0;
+    double d2=image2.height/1000.0;
+    for(float i=1;i<1000;++i){
+        for(float j=0;j<1000;++j){
+            if(0.7*square(i-500) + square((575-j)- 13.416*sqrt(abs(i-500))) >175000 ){
+                //To control the color of background
+                image(i,j,0)=255;
+                image(i,j,1)=255;
+                image(i,j,2)=255;
+            }
+            else{
+                image(i,j,0)=image2(i*d1,j*d2,0);
+                image(i,j,1)=image2(i*d1,j*d2,1);
+                image(i,j,2)=image2(i*d1,j*d2,2);
+            }
+        }
+    }
+    asking_for_saving(image,name);
+}
+
+void center_light(Image& image,string & name){
+    //This variable that take the value
+    float input;
+    while (true) {
+        cout << "Enter a float number between 0.5 and 2: "<<endl;
+        cin >> input;
+
+        // Check for invalid input or if input is out of range
+        if (std::cin.fail()) {
+            std::cin.clear(); // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+            cout << "Invalid input. Please enter a valid float number." << std::endl;
+        } else if (!validate_center_light(input)) {
+            cout << "Input out of range. Please enter a number between 0.5 and 2." << std::endl;
+        } else {
+            break;
+        }
+    }
+    float c=input;
+
+    int a= image.width>>1;
+    int b= image.height>>1;
+    float A= image.width * 0.707107;
+    float B= image.height * 0.707107;
+    A*=A;
+    B*=B;
+    float z;
+    for(int i=0;i<image.width;++i){
+        for(int j=0;j<image.height;++j){
+            z=c*sqrt(1- square(i-a)/A - square(j-b)/B);
+            image(i,j,0)=(image(i,j,0)*z>255)?255:image(i,j,0)*z;
+            image(i,j,1)=(image(i,j,1)*z>255)?255:image(i,j,1)*z;
+            image(i,j,2)=(image(i,j,2)*z>255)?255:image(i,j,2)*z;
+        }
+    }
+    asking_for_saving(image,name);
+}
+bool validate_center_light(float num) {
+    // Check if the number is in the valid range
+    return (num >= 0.5f && num <= 2.0f);
+}
+
+void rotate_frame(Image& image, string &name){
+    float input;
+
+    while (true) {
+        std::cout << "Enter a float number between -45 and 45: "<<endl;
+        std::cin >> input;
+
+        // Check for invalid input or if input is out of range
+        if (std::cin.fail()) {
+            std::cin.clear(); // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+            std::cout << "Invalid input. Please enter a valid float number." << std::endl;
+        } else if (!validate_rotate_frame(input)) {
+            std::cout << "Input out of range. Please enter a number between -45 and 45." << std::endl;
+        } else {
+            break;
+        }
+    }
+    float ang=input;
+    if(ang<0){
+        ang=abs(ang);
+        ang = ang*3.141593 /180;
+        float slope=tan(1.570796-ang);
+        float slope2 = -1/slope;
+        int y=image.width*sin(ang);
+        int x=(image.height-y)/slope;
+        int d1=image.height-y;
+        for(int i=0;i<image.width;++i){
+            for(int j=0;j<image.height;++j){
+                if(j>slope*i+y || j<slope*(i-image.width+x) || j<slope2*i+y || j>slope2*(i-image.width)+d1){
+                    image(i,j,0)=0;
+                    image(i,j,1)=0;
+                    image(i,j,2)=0;
+                }
+            }
+        }
+        asking_for_saving(image,name);
+    }
+    else{
+        ang = ang*3.141593 /180;
+        float slope=tan(ang);
+        float slope2= -1/slope;
+        int y=image.width*sin(ang);
+        int x=(image.height-y)*slope;
+        for(int i=0;i<image.width;++i){
+            for(int j=0;j<image.height;++j){
+                if(j>slope2*(i-image.width)+y || j<slope2*i+image.height-y || j>slope*i+image.height-y || j<slope*(i-image.width)+y){
+                    image(i,j,0)=0;
+                    image(i,j,1)=0;
+                    image(i,j,2)=0;
+                }
+            }
+        }
+        asking_for_saving(image,name);
+    }
+
+}
+
+bool validate_rotate_frame(float num) {
+    // Check if the number is in the valid range
+    return (num >= -45.0f && num <= 45.0f);
 }
