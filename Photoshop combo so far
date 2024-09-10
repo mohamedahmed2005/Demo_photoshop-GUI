@@ -336,7 +336,7 @@ void invert_image(Image& primary, string &name) {
 
 
 void rotate_image( Image& primary, string &name) {
-    Image rotated_image(primary.height, primary.width); // declare this photo to 90 degree's photo
+    Image rotated_image(primary.height, primary.width); // declare this photo to 90-degree photo
     string x,y;
     cout<<"1: rotate by 90 degree"<<endl;
     cout<<"2: rotate by 180 degree"<<endl;
@@ -378,7 +378,7 @@ void rotate_image( Image& primary, string &name) {
                     rotated_image(j, primary.width - 1 - i, 2) = primary(i, j, 2); //j represents the row index || primary.width - 1 - i represents the new column index on matrix for blue color
                 }
             }
-            Image rotated_image_2(rotated_image.height, rotated_image.width); // declare this photo that will be 180 degree's photo
+            Image rotated_image_2(rotated_image.height, rotated_image.width); // declare this photo that will be 180-degree photo
             for (int i = 0; i < rotated_image.width; i++) {
                 for (int j = 0; j < rotated_image.height; j++) {
                     rotated_image_2(j, rotated_image.width - 1 - i, 0) = rotated_image(i, j, 0); //j represents the row index || rotated_image.width - 1 - i represents the new column index on matrix for red color
@@ -405,7 +405,7 @@ void rotate_image( Image& primary, string &name) {
                     rotated_image_2(j, rotated_image.width - 1 - i, 2) = rotated_image(i, j, 2); //j represents the row index || rotated_image.width - 1 - i represents the new column index on matrix for blue color
                 }
             }
-            Image rotated_image_3(rotated_image_2.height, rotated_image_2.width); // declare this photo that will be 270 degree's photo
+            Image rotated_image_3(rotated_image_2.height, rotated_image_2.width); // declare this photo that will be 270-degree photo
             for (int i = 0; i < rotated_image_2.width; i++) {
                 for (int j = 0; j < rotated_image_2.height; j++) {
                     rotated_image_3(j, rotated_image_2.width - 1 - i, 0) = rotated_image_2(i, j, 0); //j represents the row index || rotated_image_2.width - 1 - i represents the new column index on matrix for red color
@@ -433,7 +433,7 @@ void rotate_image( Image& primary, string &name) {
                     rotated_image_2(j, rotated_image.width - 1 - i, 2) = rotated_image(i, j, 2); //j represents the row index || rotated_image.width - 1 - i represents the new column index on matrix for blue color
                 }
             }
-            Image rotated_image_3(rotated_image_2.height, rotated_image_2.width); // declare this photo that will be 270 degree's photo
+            Image rotated_image_3(rotated_image_2.height, rotated_image_2.width); // declare this photo that will be 270-degree photo
             for (int i = 0; i < rotated_image_2.width; i++) {
                 for (int j = 0; j < rotated_image_2.height; j++) {
                     rotated_image_3(j, rotated_image_2.width - 1 - i, 0) = rotated_image_2(i, j, 0); //j represents the row index || rotated_image_2.width - 1 - i represents the new column index on matrix for red color
@@ -451,7 +451,7 @@ void rotate_image( Image& primary, string &name) {
                     rotated_image(j, primary.width - 1 - i, 2) = primary(i, j, 2); //j represents the row index || primary.width - 1 - i represents the new column index on matrix for blue color
                 }
             }
-            Image rotated_image_2(rotated_image.height, rotated_image.width); // declare this photo that will be 180 degree's photo
+            Image rotated_image_2(rotated_image.height, rotated_image.width); // declare this photo that will be 180-degree photo
             for (int i = 0; i < rotated_image.width; i++) {
                 for (int j = 0; j < rotated_image.height; j++) {
                     rotated_image_2(j, rotated_image.width - 1 - i, 0) = rotated_image(i, j, 0); //j represents the row index || rotated_image.width - 1 - i represents the new column index on matrix for red color
@@ -640,7 +640,7 @@ void merge_image(Image& primary,string &name){
             }
             asking_for_saving(thirdly,name);
         }
-            // if width of first primary is less than second but it has bigger height
+            // if width of first primary is less than second, but it has bigger height
         else if(primary.width<=secondary.width && primary.height>=secondary.height){
             // declare the resizing variables
             int width_scale=secondary.width;
@@ -804,7 +804,7 @@ void lighten_darken_image(Image &primary, string&name){
             }
         }
     }
-        // decrease pixel colour to perctange chosen pixel colour
+        // decrease pixel colour to percentage chosen pixel colour
     else if(filter_choice=="2"){
         for(int i=0; i<primary.width; i++){
             for(int j=0; j<primary.height; j++){
@@ -1823,19 +1823,12 @@ void resize2_image(int new_width ,int new_height,Image& primary) {
     for (int i = 0; i < new_width; ++i) {
         for (int j = 0; j < new_height; ++j) {
             for (int k = 0; k < 3; ++k) {
-                resized(i, j, k) = primary(ceil(i * x), ceil(j * y), k);
+                resized(i, j, k) = primary(floor(i * x), floor(j * y), k);
             }
         }
     }
-    primary.width = new_width;
-    primary.height = new_height;
-    for (int i = 0; i < primary.width; ++i) {
-        for (int j = 0; j < primary.height; ++j) {
-            for (int k = 0; k < 3; ++k) {
-                primary(i, j, k) = resized(i, j, k);
-            }
-        }
-    }
+    primary.~Image();
+    primary = resized;
 }
 void oil_painting(Image& primary,string& name){
     int width = primary.width;
