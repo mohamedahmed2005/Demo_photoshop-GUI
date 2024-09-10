@@ -13,7 +13,10 @@ SOURCES += \
     demo_photoshop.cpp
 
 HEADERS += \
-    demo_photoshop.h
+    Image_class.h \
+    demo_photoshop.h \
+    stb_image.h \
+    stb_image_write.h
 
 FORMS += \
     demo_photoshop.ui
