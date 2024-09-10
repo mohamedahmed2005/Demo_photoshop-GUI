@@ -2273,6 +2273,57 @@ void TV(Image& image,string &name){
         asking_for_saving(image, name);
     }
     else{
-
+        int numbers[] = {0, 255,127, 7, 7, 7, 7, 7}; // Your predefined set of values
+        int array_size = sizeof(numbers) / sizeof(numbers[0]);
+        if(image.width >= 3000 || image.height >= 3000){
+            // Seed the random number generator once
+            srand(time(0));
+    
+            // Loop through the pixels of the image
+            for (int i = 0; i < image.width; i+=3) {
+                for (int j = 0; j < image.height; j+=3) {
+                    // Generate a random index to pick from the numbers array
+                    if (i >= image.width || j >= image.height){
+                        break;
+                    }
+                    int random_index = rand() % array_size;
+                    int random_number = numbers[random_index];
+    
+                    // Set the pixel color (R, G, B) only if the random number is not 7
+                    if (random_number != 7) {
+                        for (int k = i; k < i+3; ++k) {
+                            for (int l = j; l < j+3; ++l) {
+                                if (k >= image.width || l >= image.height){
+                                    break;
+                                }
+                                image(k, l, 0) = random_number; // Red channel
+                                image(k, l, 1) = random_number; // Green channel
+                                image(k, l, 2) = random_number; // Blue channel
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else{
+            // Seed the random number generator once
+            srand(time(0));
+    
+            // Loop through the pixels of the image
+            for (int i = 0; i < image.width; ++i) {
+                for (int j = 0; j < image.height; ++j) {
+                    // Generate a random index to pick from the numbers array
+                    int random_index = rand() % array_size;
+                    int random_number = numbers[random_index];
+    
+                    // Set the pixel color (R, G, B) only if the random number is not 7
+                    if (random_number != 7) {
+                        image(i, j, 0) = random_number; // Red channel
+                        image(i, j, 1) = random_number; // Green channel
+                        image(i, j, 2) = random_number; // Blue channel
+                    }
+                }
+            }
+        }
     }
 }
