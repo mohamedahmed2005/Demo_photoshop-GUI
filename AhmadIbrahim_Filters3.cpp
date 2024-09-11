@@ -176,3 +176,46 @@ int main(){
     system(nameImage.c_str());
     return 0;
 }*/
+////////////////////////////////////////////////////////////////////////////////////
+/*SemiCircle Frame Filter
+#include<iostream>
+#include "Image_Class.h"
+using namespace std;
+int main(){
+    Image image("luffy.jpg");
+    //This is width semicircles number and it have to be even number
+    int n=10;
+    
+    n>>=1;
+    int  n2=(float)n*image.height/image.width;
+    n=image.width/n;
+    float arcoef =6.283186/n;
+    float coef =  1/arcoef;
+
+    n2=image.height/n2;
+    float arcoef2 =6.283186/n2;
+    float coef2 =  1/arcoef2;
+
+    int sini,sinj;
+    for(int i=0;i<image.width;++i){
+        for(int j=0;j<image.height;++j){
+            sini = sin(i*arcoef)*coef;
+            sinj = sin(j*arcoef2)*coef2;
+            if(sini>j || -sini>image.height-j || -sinj>i || sinj>image.width-i){
+                image(i,j,0)=225;
+                image(i,j,1)=0;
+                image(i,j,2)=0;
+            }
+            else if(-sini>j || sini>image.height-j || sinj>i || -sinj>image.width-i){
+                image(i,j,0)=0;
+                image(i,j,1)=255;
+                image(i,j,2)=255;
+            }
+        }
+    }
+    string imageName="CirclesFilter2_3.jpg";
+    image.saveImage(imageName);
+    system(imageName.c_str());
+    return 0;
+}
+*/
