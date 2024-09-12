@@ -37,6 +37,7 @@ void add_frame_to_image(Image& image,string& name);
 void add_frame_arboretum(Image& image, int* frame_color,int* frame_color_2);
 void add_frame_simple(Image& image, int* frame_color);
 void circular_frame(Image& image,int *frame_color, int* frame_color_2);
+void fancy_frame(Image& image,int *frame_color, int* frame_color_2);
 void Infra_Red(Image& primary, string& name);
 void resizing(Image& primary, string &name);
 void detect_edge(Image& primary, string& name);
@@ -1282,7 +1283,97 @@ void add_frame_to_image(Image& image,string& name) {
         asking_for_saving(image,name);
     }
     else{
+        int frame_color[3]; // Array to store RGB values of frame color
+        int *ptr_frame_color = frame_color; // Pointer to frame color array
+
+        cout << "Please enter the primary color of the frame (RGB values separated by spaces, e.g., '255 0 0' for red): "<<endl;
+        for (int i = 0; i < 3; ++i) {
+            cout<<"Enter colour number"<<i+1<<endl;
+            string x;
+            cin>>x;
+            while(true){
+                if(!is_number(x)|| stoi(x)>255 || stoi(x)<0){
+                    cout<<"please enter a valid colour number from 0 to 255"<<endl;
+                    cin>>x;
+                }
+                else{
+                    *(ptr_frame_color + i)=stoll(x); // Read RGB values via pointer
+                    break;
+                }
+            }
+        }
+        int frame_color_2[3]; // Array to store RGB values of frame color
+        int *ptr_frame_color_2 = frame_color_2; // Pointer to frame color array
+        cout << "Please enter the secondary color of the frame (RGB values separated by spaces, e.g., '255 0 0' for red): "<<endl;
+        for (int i = 0; i < 3; ++i) {
+            cout<<"Enter colour number"<<i+1<<endl;
+            string x;
+            cin>>x;
+            while(true){
+                if(!is_number(x)|| stoi(x)>255 || stoi(x)<0){
+                    cout<<"please enter a valid colour number from 0 to 255"<<endl;
+                    cin>>x;
+                }
+                else{
+                    *(ptr_frame_color_2 + i)=stoll(x); // Read RGB values via pointer
+                    break;
+                }
+            }
+        }
+        fancy_frame(image,ptr_frame_color,ptr_frame_color_2);
         asking_for_saving(image,name);
+    }
+}
+
+void fancy_frame(Image& image,int *frame_color, int* frame_color_2){
+    int end=((image.width<image.height)?image.width:image.height)*0.13;
+    //by default value for n and candidated for the user
+    int value=((image.width<image.height)?image.width:image.height)*0.03;
+    //n is for the pixels number colored by frame
+    int n=value;
+    //n2 is for second white line
+    int n2=n*1.25;
+    //n4 is for first white line
+    int n4=n*0.8,n5=n*0.9;
+    //n3 is for square part
+    int n3=n<<1;
+    //n6 is for third line
+    int n6=n*2.3,n7=n*2.4;
+    //n8,n9 is for fourth line
+    int n8=n*2.5,n9=n*2.85;
+    int c=n*1.75,c2=n*3.35,r=square(n*0.4),r2=square(n*0.52);
+    for(int i=0;i<image.width;++i){
+        for(int j=0;j<image.height;++j){
+            if(i<n || j<n || image.width-n<i ||image.height-n<j){
+                //The blue part
+                image(i,j,0)=frame_color[0];
+                image(i,j,1)=frame_color[1];
+                image(i,j,2)=frame_color[2];
+            }
+            if(i>=n&&i<n2 || j>=n&&j<n2 || image.width-n2<i&&image.width-n>=i || image.height-n2<j&&image.height-n>=j || i>n&&i<n3&&j>n&&j<n3 //the second lines
+               || image.width-n3<i&&i<image.width-n&&j>n&&j<n3 || i>n&&i<n3&&image.height-n3<j&&image.height-n>j || image.width-n3<i&&image.width-n>i&&image.height-n3<j&&image.height-n>j //the squares
+               || i>n4&&i<n5 || j>n4&&j<n5 || image.width-n5<i&&image.width-n4>i || image.height-n5<j&&image.height-n4>j//the first lines
+               || i>n&&i<n7&&j<n7&&(j>n&&i>n6||j>n6) || j>n&&i>image.width-n7&&(j<n7&&i<image.width-n6||image.width-n>i&&j>n6&&j<n7) || i>n&&i<n7&&image.height-n7<j&&(image.height-n6>j||i>n6&&image.height-n>j ) //...
+               || j>image.height-n7&&image.width-n7<i&&(image.height-n>j&&image.height-n7<j&&image.width-n6>i || image.width-n>i&&j<image.height-n6)//for third lines
+
+               || i>n&&i<n9&&j<n9&&(j>n&&i>n8||j>n8) || j>n&&i>image.width-n9&&(j<n9&&i<image.width-n8||image.width-n>i&&j>n8&&j<n9) || i>n&&i<n9&&image.height-n9<j&&(image.height-n8>j||i>n8&&image.height-n>j ) //...
+               || j>image.height-n9&&image.width-n9<i&&(image.height-n>j&&image.height-n9<j&&image.width-n8>i || image.width-n>i&&j<image.height-n8)//for the fourth
+
+               || square(i-c)+ square(j-c2)<=r2&&square(i-c)+ square(j-c2)>=r
+               || square(i-c2)+ square(j-c)<=r2&&square(i-c2)+ square(j-c)>=r
+               || square(i-c)+ square(j-(image.height-c2))<=r2&&square(i-c)+ square(j-image.height+c2)>=r
+               || square(i-(image.width-c2))+ square(j-c)<=r2&&square(i-(image.width-c2))+ square(j-c)>=r
+               || square(i-(image.width-c))+ square(j-c2)<=r2&&square(i-(image.width-c))+ square(j-c2)>=r
+               || square(i-c2)+ square(j-(image.height-c))<=r2&&square(i-c2)+ square(j-image.height+c)>=r
+               || square(i-(image.width-c2))+ square(j-(image.height-c))<=r2&&square(i-(image.width-c2))+ square(j-image.height+c)>=r
+               || square(i-(image.width-c))+ square(j-(image.height-c2))<=r2&&square(i-(image.width-c))+ square(j-image.height+c2)>=r
+                    ){
+                //The white part
+                image(i,j,0)=frame_color_2[0];
+                image(i,j,1)=frame_color_2[1];
+                image(i,j,2)=frame_color_2[2];
+            }
+        }
     }
 }
 
@@ -2056,21 +2147,23 @@ void Egg(Image& image,string &name){
     int b=image.height>>1;
     float a2=a*a;
     float b2=b*b;
-    float d,d2;
+    float d,d2,z,y;
     for(int i=0;i<image.width;++i){
         d=image.height*sqrt(1-(i-a)/a2);
         for(int j=0;j<image.height;++j){
-            if(square(j-b)/b2 + square(i-a)/a2 >1){
+            y=square(j-b)/b2 + square(i-a)/a2;
+            if( y>1){
                 image2(i,j,0)=0;
                 image2(i,j,1)=0;
                 image2(i,j,2)=0;
             }
             else{
+                z=sqrt(1-y);
                 if(d)
                     d2=(j+(b* sqrt(1- square(i-a)/a2)-b))/d;
-                image2(i,j,0)=image(i,d2*image.height,0);
-                image2(i,j,1)=image(i,d2*image.height,1);
-                image2(i,j,2)=image(i,d2*image.height,2);
+                image2(i,j,0)=image(i,d2*image.height,0)*z;
+                image2(i,j,1)=image(i,d2*image.height,1)*z;
+                image2(i,j,2)=image(i,d2*image.height,2)*z;
             }
         }
     }
@@ -2536,5 +2629,107 @@ void rotate_camera(Image& image, string& name){
 }
 
 void wave(Image& image, string& name){
+    cout<<"1. Vertical"<<endl;
+    cout<<"2. Horizontal"<<endl;
+    string choice;
+    cin>>choice;
+    while(true){
+        if(choice!="1" && choice!="2"){
+            cout<<"Please enter 1 or 2"<<endl;
+            cin>>choice;
+        }
+        else break;
+    }
+    float input;
+    float input2;
+    while (true) {
+        std::cout << "Please enter frequency of waves greater than zero: "<<endl;
+        std::cin >> input;
 
+        // Check for invalid input or if input is out of range
+        if (std::cin.fail()) {
+            std::cin.clear(); // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+            std::cout << "Invalid input. Please enter a valid float number." << std::endl;
+        } else if (input<=0) {
+            std::cout << "Input out of range. Please enter frequency of waves greater than zero." << std::endl;
+        } else {
+            break;
+        }
+    }
+    while (true) {
+        std::cout << "Please enter height of waves greater than zero: "<<endl;
+        std::cin >> input2;
+
+        // Check for invalid input or if input is out of range
+        if (std::cin.fail()) {
+            std::cin.clear(); // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+            std::cout << "Invalid input. Please enter a valid float number." << std::endl;
+        } else if (input2<=0) {
+            std::cout << "Input out of range. Please enter height of waves greater than zero." << std::endl;
+        } else {
+            break;
+        }
+    }
+    if(choice=="1"){
+        float n=input;
+        n=image.height/n;
+        float coef =6.28318531/n;
+        //This variable for waves height
+        float arcoef = input2;
+        int y;
+        Image image2(image.width+2*arcoef,image.height);
+        for(int j=0;j<image2.height;++j){
+            y=arcoef*cos(coef*j)+arcoef;
+            for(int i=0;i<image2.width;++i){
+                if(y>i) {
+                    image2(i, j, 0) = image(0,j,0);
+                    image2(i, j, 1) = image(0,j,1);
+                    image2(i, j, 2) = image(0,j,2);
+                }
+                else if(y-arcoef+image.width<i){
+                    image2(i,j,0)=image(image.width-1,j,0);
+                    image2(i,j,1)=image(image.width-1,j,1);
+                    image2(i,j,2)=image(image.width-1,j,2);
+                }
+                else{
+                    image2(i,j,0)=image(i-y,j,0);
+                    image2(i,j,1)=image(i-y,j,1);
+                    image2(i,j,2)=image(i-y,j,2);
+                }
+            }
+        }
+        asking_for_saving(image2,name);
+    }
+    else{
+        float n=input;
+        n=image.width/n;
+        float coef =6.28318531/n;
+        //This variable for waves number and it have to be greater than the zero
+        float arcoef = 10;
+        int y;
+        Image image2(image.width,image.height+2*arcoef);
+        for(int i=0;i<image2.width;++i){
+            y=arcoef*cos(coef*i)+arcoef;
+            for(int j=0;j<image2.height;++j){
+                if(y>j){
+                    image2(i,j,0)=image(i,0,0);
+                    image2(i,j,1)=image(i,0,1);
+                    image2(i,j,2)=image(i,0,2);
+                }
+                else if(j>y-arcoef+image.height){
+                    image2(i,j,0)=image(i,image.height-1,0);
+                    image2(i,j,1)=image(i,image.height-1,1);
+                    image2(i,j,2)=image(i,image.height-1,2);
+                }
+                else{
+                    image2(i,j,0)=image(i,j-y,0);
+                    image2(i,j,1)=image(i,j-y,1);
+                    image2(i,j,2)=image(i,j-y,2);
+                }
+            }
+        }
+        asking_for_saving(image2,name);
+    }
 }
