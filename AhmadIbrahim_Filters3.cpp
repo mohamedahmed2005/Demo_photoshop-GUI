@@ -322,4 +322,93 @@ int main(){
     system(nameImage.c_str());
     return 0;
 }*/
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Wave filter with two parts
+/* Wave Filter by vertical
+ * #include<iostream>
+#include "Image_Class.h"
+#include<cmath>
+using namespace std;
+int main(){
+    Image image("luffy.jpg");
 
+    //This variable for waves number and it have to be greater than the zero
+    float n=10;
+    n=image.height/n;
+    float coef =6.28318531/n;
+
+    //This variable for waves height
+    float arcoef = 10;
+
+    int y;
+    Image image2(image.width+2*arcoef,image.height);
+    for(int j=0;j<image2.height;++j){
+        y=arcoef*cos(coef*j)+arcoef;
+        for(int i=0;i<image2.width;++i){
+            if(y>i) {
+                image2(i, j, 0) = image(0,j,0);
+                image2(i, j, 1) = image(0,j,1);
+                image2(i, j, 2) = image(0,j,2);
+            }
+            else if(y-arcoef+image.width<i){
+                image2(i,j,0)=image(image.width-1,j,0);
+                image2(i,j,1)=image(image.width-1,j,1);
+                image2(i,j,2)=image(image.width-1,j,2);
+            }
+            else{
+                image2(i,j,0)=image(i-y,j,0);
+                image2(i,j,1)=image(i-y,j,1);
+                image2(i,j,2)=image(i-y,j,2);
+            }
+        }
+    }
+    string nameImage = "waveFilter2_3.jpg";
+    image2.saveImage(nameImage);
+    system(nameImage.c_str());
+    return 0;
+}*/
+
+// Wave Filter by horizontal
+/*#include<iostream>
+#include "Image_Class.h"
+#include<cmath>
+using namespace std;
+int main(){
+    Image image("luffy.jpg");
+    //This variable for waves number and it have to be greater than the zero
+
+    float n=10;
+    n=image.width/n;
+    float coef =6.28318531/n;
+
+    //This variable for waves number and it have to be greater than the zero
+    float arcoef = 10;
+
+    int y;
+    Image image2(image.width,image.height+2*arcoef);
+    for(int i=0;i<image2.width;++i){
+        y=arcoef*cos(coef*i)+arcoef;
+        for(int j=0;j<image2.height;++j){
+            if(y>j){
+                image2(i,j,0)=image(i,0,0);
+                image2(i,j,1)=image(i,0,1);
+                image2(i,j,2)=image(i,0,2);
+            }
+            else if(j>y-arcoef+image.height){
+                image2(i,j,0)=image(i,image.height-1,0);
+                image2(i,j,1)=image(i,image.height-1,1);
+                image2(i,j,2)=image(i,image.height-1,2);
+            }
+            else{
+                image2(i,j,0)=image(i,j-y,0);
+                image2(i,j,1)=image(i,j-y,1);
+                image2(i,j,2)=image(i,j-y,2);
+            }
+        }
+    }
+    string nameImage = "waveFilter_1.jpg";
+    image2.saveImage(nameImage);
+    system(nameImage.c_str());
+    return 0;
+}*/
+//////////////////////////////////////////////////////////////
