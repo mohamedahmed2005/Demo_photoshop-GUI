@@ -284,3 +284,42 @@ int main(){
 }
 */
 //////////////////////////////////////////////////////////////////////////////////////////
+/*// Egg Filter The second version
+#include<iostream>
+#include<cmath>
+#include "Image_Class.h"
+using namespace std;
+int square(int x){return x*x;}
+int main(){
+    Image image("toy1.jpg");
+    Image image2(image.width,image.height);
+    int a=image.width>>1;
+    int b=image.height>>1;
+    float a2=a*a;
+    float b2=b*b;
+    float d,d2,z,y;
+    for(int i=0;i<image.width;++i){
+        d=image.height*sqrt(1-(i-a)/a2);
+        for(int j=0;j<image.height;++j){
+            y=square(j-b)/b2 + square(i-a)/a2;
+            if( y>1){
+                image2(i,j,0)=0;
+                image2(i,j,1)=0;
+                image2(i,j,2)=0;
+            }
+            else{
+                z=sqrt(1-y);
+                if(d)
+                    d2=(j+(b* sqrt(1- square(i-a)/a2)-b))/d;
+                image2(i,j,0)=image(i,d2*image.height,0)*z;
+                image2(i,j,1)=image(i,d2*image.height,1)*z;
+                image2(i,j,2)=image(i,d2*image.height,2)*z;
+            }
+        }
+    }
+    string nameImage="Ellipse_5.jpg";
+    image2.saveImage(nameImage);
+    system(nameImage.c_str());
+    return 0;
+}*/
+
