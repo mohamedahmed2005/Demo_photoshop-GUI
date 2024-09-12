@@ -16,8 +16,6 @@ Emails:
 ahmd.mohamed200515@gmail.com
 11410120231134@stud.cu.edu.eg
 
-system diagram link : https://drive.google.com/drive/folders/1hBaIyt5tXv7h1qtAeJwW8HEYiY32tMrz
-
 GitHub repo link: https://github.com/mohamedahmed2005/Demo_photoshop-GUI
  */
 #include <bits/stdc++.h>
@@ -55,6 +53,8 @@ void load_image(Image& primary, string& name);
 void Cardiod(Image& image2,string &name);
 void center_light(Image& image,string & name);
 void rotate_frame(Image& image, string &name);
+void rotate_camera(Image& image, string& name);
+void wave(Image& image, string& name);
 string valid_choice(string filter_choice);
 string image_name_validate(string name,string& Image_name);
 string choice_load_save(string choice);
@@ -69,78 +69,6 @@ void rain_drop(Image& image, string& name);
 void skew(Image& image,string& name);
 float getValidFloatInput();
 bool validate_rotate_frame(float num);
-
-//void test(){
-//    Image image("toy1.jpg");
-//    float ang;cin>>ang;
-//    bool isLikeSquareAt45= false;
-//    if(ang>40||ang<-40)
-//        isLikeSquareAt45=true;
-//
-//    if(image.width>image.height && ang) {
-//        if (ang > 0) {
-//            ang = ang * 3.1415927 / 180;
-//            float cosA = cos(ang);
-//            float sinA = sin(ang);
-//            int y = image.width * sin(ang);
-//            if (isLikeSquareAt45)
-//                y *= 0.68;
-//            float slope = tan(ang);
-//            float slope2 = -1 / slope;
-//            int xs = (slope * y + image.height - slope * image.width + slope2 * y) / (slope2 - slope);
-//            int ys = slope * (xs - image.width + y) + image.height;
-//            Image image2(sqrt(pow(xs - image.width + y, 2) + pow(ys - image.height, 2)),
-//                         sqrt(pow(y - xs, 2) + ys * ys));
-//
-//            int af, ag;
-//            for (int i = 0; i < image2.width; ++i) {
-//                for (int j = 0; j < image2.height; ++j) {
-//                    ag = y + i * cosA - j * sinA;
-//                    ag = image.width - ag;
-//                    af = sinA * (i - slope * j) + j / cosA;
-//                    image2(image2.width - i, j, 0) = image(ag, af, 0);
-//                    image2(image2.width - i, j, 1) = image(ag, af, 1);
-//                    image2(image2.width - i, j, 2) = image(ag, af, 2);
-//                }
-//            }
-//            string nameImage =
-//                    "RotateWid5_" + to_string(int((ang * 180 / 3.1415927))) + "__" + to_string(image2.width) + "x" +
-//                    to_string(image2.height) + ".jpg";
-//            image2.saveImage(nameImage);
-//            system(nameImage.c_str());
-//        } else if (ang < 0) {
-//            ang = -ang * 3.1415927 / 180;
-//            float cosA = cos(ang);
-//            float sinA = sin(ang);
-//            int y = image.width * sin(ang);
-//            if (isLikeSquareAt45)
-//                y *= 0.68;
-//            float slope = tan(ang);
-//            float slope2 = -1 / slope;
-//            int xs = (slope * y + image.height - slope * image.width + slope2 * y) / (slope2 - slope);
-//            int ys = slope * (xs - image.width + y) + image.height;
-//            Image image2(sqrt(pow(xs - image.width + y, 2) + pow(ys - image.height, 2)),
-//                         sqrt(pow(y - xs, 2) + ys * ys));
-//            cout << "image2.width = " << image2.width << "\timage2.height = " << image2.height << '\n';
-//            int ag, af;
-//            for (int i = 0; i < image2.width; ++i) {
-//                for (int j = 0; j < image2.height; ++j) {
-//                    ag = y + i * cosA - j * sinA;
-//                    af = sinA * (i - slope * j) + j / cosA;
-//                    image2(i, j, 0) = image(ag, af, 0);
-//                    image2(i, j, 1) = image(ag, af, 1);
-//                    image2(i, j, 2) = image(ag, af, 2);
-//                }
-//            }
-//            string nameImage =
-//                    "RotateWid5_" + to_string(-int((ang * 180 / 3.1415927))) + "__" + to_string(image2.width) + "x" +
-//                    to_string(image2.height) + ".jpg";
-//            image2.saveImage(nameImage);
-//            system(nameImage.c_str());
-//        }
-//    }
-//    exit(0);
-//}
 
 int main() {
     fast
@@ -253,14 +181,20 @@ void filter_choices(string filter_choice, Image& primary, string &name){
     else if(filter_choice=="25"){
         TV(primary,name);
     }
-    else if (filter_choice == "26"){
-        load_image(primary,name);
+    else if(filter_choice=="26"){
+        rotate_camera(primary,name);
     }
     else if(filter_choice=="27"){
+        wave(primary,name);
+    }
+    else if (filter_choice == "28"){
+        load_image(primary,name);
+    }
+    else if(filter_choice=="29"){
         save_image(primary,name);
         filters_menu(primary,name);
     }
-    else if(filter_choice=="28"){
+    else if(filter_choice=="30"){
         save_image(primary,name);
         cout<<"Thanks for using our primary filters application"<<endl;
         exit(0);
@@ -298,6 +232,8 @@ string valid_choice(string filter_choice){
         else if(filter_choice == "26")break;
         else if(filter_choice == "27")break;
         else if(filter_choice == "28")break;
+        else if(filter_choice == "29")break;
+        else if(filter_choice == "30")break;
         else{
             cout<<"Please enter a valid choice"<<endl;
             cin>>filter_choice;
@@ -362,9 +298,11 @@ void filters_menu(Image & primary, string &name){
     cout<<"23. Center light"<<endl;
     cout<<"24. Rotate frame"<<endl;
     cout<<"25. TV"<<endl;
-    cout<<"26. Load a new primary image"<<endl;
-    cout<<"27. Save the Image"<<endl;
-    cout<<"28. Exit"<<endl<<endl;
+    cout<<"26. Rotate Camera"<<endl;
+    cout<<"27. Wave filter"<<endl;
+    cout<<"28. Load a new primary image"<<endl;
+    cout<<"29. Save the Image"<<endl;
+    cout<<"30. Exit"<<endl<<endl;
     cout<<"Please enter your filter choice: "<<endl;
     string filter_choice;
     cin>>filter_choice;
@@ -2457,4 +2395,146 @@ void TV(Image& image,string &name){
             }
         }
     }
+}
+
+void rotate_camera(Image& image, string& name){
+    float input;
+    while (true) {
+        std::cout << "Enter a float number between -45 and 45: "<<endl;
+        std::cin >> input;
+
+        // Check for invalid input or if input is out of range
+        if (std::cin.fail()) {
+            std::cin.clear(); // Clear the error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+            std::cout << "Invalid input. Please enter a valid float number." << std::endl;
+        } else if (!validate_rotate_frame(input)) {
+            std::cout << "Input out of range. Please enter a number between -45 and 45." << std::endl;
+        } else {
+            break;
+        }
+    }
+    if(image.width>= image.height){
+        float ang=input;
+        bool isLikeSquareAt45= false;
+        if(ang>40||ang<-40)
+            isLikeSquareAt45=true;
+            if (ang > 0) {
+                ang = ang * 3.1415927 / 180;
+                float cosA = cos(ang);
+                float sinA = sin(ang);
+                int y = image.width * sin(ang);
+//                if(isLikeSquareAt45)
+//                    y*=0.68;
+                float slope = tan(ang);
+                float slope2 = -1 / slope;
+                int xs = (slope * y + image.height - slope * image.width + slope2 * y) / (slope2 - slope);
+                int ys = slope * (xs - image.width + y) + image.height;
+                Image image2(sqrt(pow(xs - image.width + y, 2) + pow(ys - image.height, 2)), sqrt(pow(y - xs, 2) + ys * ys));
+                int af, ag;
+                for (int i = 0; i < image2.width; ++i) {
+                    for (int j = 0; j < image2.height; ++j) {
+                        ag = y + i * cosA - j * sinA;
+                        ag = image.width - ag;
+                        af = sinA * (i - slope * j) + j / cosA;
+                        image2(image2.width - i, j, 0) = image(ag, af, 0);
+                        image2(image2.width - i, j, 1) = image(ag, af, 1);
+                        image2(image2.width - i, j, 2) = image(ag, af, 2);
+                    }
+                }
+                asking_for_saving(image2,name);
+            }
+            else if (ang < 0) {
+                ang = -ang * 3.1415927 / 180;
+                float cosA = cos(ang);
+                float sinA = sin(ang);
+                int y = image.width * sin(ang);
+                if(isLikeSquareAt45)
+                    y*=0.68;float slope = tan(ang);
+                float slope2 = -1 / slope;
+                int xs = (slope * y + image.height - slope * image.width + slope2 * y) / (slope2 - slope);
+                int ys = slope * (xs - image.width + y) + image.height;
+                Image image2(sqrt(pow(xs - image.width + y, 2) + pow(ys - image.height, 2)), sqrt(pow(y - xs, 2) + ys * ys));
+                cout << "image2.width = " << image2.width << "\timage2.height = " << image2.height << '\n';
+                int ag, af;
+                for (int i = 0; i < image2.width; ++i) {
+                    for (int j = 0; j < image2.height; ++j) {
+                        ag = y + i * cosA - j * sinA;
+                        af = sinA * (i - slope * j) + j / cosA;
+                        image2(i, j, 0) = image(ag, af, 0);
+                        image2(i, j, 1) = image(ag, af, 1);
+                        image2(i, j, 2) = image(ag, af, 2);
+                    }
+                }
+                asking_for_saving(image2,name);
+            }
+            else{
+                asking_for_saving(image,name);
+            }
+
+        }
+    else{
+        float ang=input;
+        bool isLikeSquareAt45= false;
+        if(ang>40||ang<-40)
+            isLikeSquareAt45=true;
+        if(ang>0){
+            ang = ang*3.141593 /180;
+            float slope=tan(ang);
+            float slope2 = -1/slope;
+            float sinA=sin(ang);
+            float cosA=cos(ang);
+            int y=image.width*sin(ang);
+            if(isLikeSquareAt45)
+                y*=0.8;
+            int xs= (2*y-image.height-slope*image.width)/(slope2-slope);
+            int ys= slope*(xs-image.width)+y;
+            Image image2(int(sqrt(square(image.width-xs) + square(y - ys))), int(sqrt(xs*xs + square(image.height-y-ys))));
+            int pc,is,js;
+            for(int i=0;i<image2.width;++i){
+                for(int j=0;j<image2.height;++j){
+                    pc=j-slope*i;
+                    is=pc*sinA+i/cosA;
+                    js=y+pc*cosA;
+                    image2(i,j,0)=image(is,js,0);
+                    image2(i,j,1)=image(is,js,1);
+                    image2(i,j,2)=image(is,js,2);
+                }
+            }
+            asking_for_saving(image2,name);
+        }
+        else if(ang<0) {
+            ang = -ang * 3.141593 / 180;
+            float slope = tan(ang);
+            float slope2 = -1 / slope;
+            float cosAng = cos(ang);
+            int y = image.width * sin(ang);
+            if(isLikeSquareAt45)
+                y*=0.8;
+            int xs = (2 * y - image.height - slope * image.width) / (slope2 - slope);
+            int ys = slope * (xs - image.width) + y;
+            Image image2(int(sqrt(square(image.width - xs) +square(y - ys))), int(sqrt(
+            xs * xs + square(image.height - y - ys))));
+            int kd, ko, is, js;
+            ko = image.height - y;
+            for (int i = 0; i < image2.width; ++i) {
+                for (int j = 0; j < image2.height; ++j) {
+                    kd = image2.height - j;
+                    is = cosAng * (i + slope * kd);
+                    js = ko - (kd - slope * i) * cosAng;
+                    image2(i, j, 0) = image(is, js, 0);
+                    image2(i, j, 1) = image(is, js, 1);
+                    image2(i, j, 2) = image(is, js, 2);
+                }
+            }
+            asking_for_saving(image2,name);
+        }
+        else{
+            asking_for_saving(image,name);
+        }
+    }
+}
+
+void wave(Image& image, string& name){
+
 }
