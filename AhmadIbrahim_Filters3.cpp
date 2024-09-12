@@ -219,3 +219,68 @@ int main(){
     return 0;
 }
 */
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*Fancy frame the second version
+#include<iostream>
+#include "Image_Class.h"
+using namespace std;
+int square(int x){return x*x;}
+int main(){
+    Image image("luffy.jpg");
+    //This is maximum for n
+    int end=((image.width<image.height)?image.width:image.height)*0.13;
+    //by default value for n and candidated for the user
+    int value=((image.width<image.height)?image.width:image.height)*0.03;
+    //n is for the pixels number colored by frame
+    int n=value;
+    //n2 is for second white line
+    int n2=n*1.25;
+    //n4 is for first white line
+    int n4=n*0.8,n5=n*0.9;
+    //n3 is for square part
+    int n3=n<<1;
+    //n6 is for third line
+    int n6=n*2.3,n7=n*2.4;
+    //n8,n9 is for fourth line
+    int n8=n*2.5,n9=n*2.85;
+    int c=n*1.75,c2=n*3.35,r=square(n*0.4),r2=square(n*0.52);
+    for(int i=0;i<image.width;++i){
+        for(int j=0;j<image.height;++j){
+            if(i<n || j<n || image.width-n<i ||image.height-n<j){
+                //The blue part
+                image(i,j,0)=0;
+                image(i,j,1)=0;
+                image(i,j,2)=255;
+            }
+            if(i>=n&&i<n2 || j>=n&&j<n2 || image.width-n2<i&&image.width-n>=i || image.height-n2<j&&image.height-n>=j || i>n&&i<n3&&j>n&&j<n3 //the second lines
+            || image.width-n3<i&&i<image.width-n&&j>n&&j<n3 || i>n&&i<n3&&image.height-n3<j&&image.height-n>j || image.width-n3<i&&image.width-n>i&&image.height-n3<j&&image.height-n>j //the squares
+            || i>n4&&i<n5 || j>n4&&j<n5 || image.width-n5<i&&image.width-n4>i || image.height-n5<j&&image.height-n4>j//the first lines
+            || i>n&&i<n7&&j<n7&&(j>n&&i>n6||j>n6) || j>n&&i>image.width-n7&&(j<n7&&i<image.width-n6||image.width-n>i&&j>n6&&j<n7) || i>n&&i<n7&&image.height-n7<j&&(image.height-n6>j||i>n6&&image.height-n>j ) //...
+            || j>image.height-n7&&image.width-n7<i&&(image.height-n>j&&image.height-n7<j&&image.width-n6>i || image.width-n>i&&j<image.height-n6)//for third lines
+
+            || i>n&&i<n9&&j<n9&&(j>n&&i>n8||j>n8) || j>n&&i>image.width-n9&&(j<n9&&i<image.width-n8||image.width-n>i&&j>n8&&j<n9) || i>n&&i<n9&&image.height-n9<j&&(image.height-n8>j||i>n8&&image.height-n>j ) //...
+            || j>image.height-n9&&image.width-n9<i&&(image.height-n>j&&image.height-n9<j&&image.width-n8>i || image.width-n>i&&j<image.height-n8)//for the fourth
+
+            || square(i-c)+ square(j-c2)<=r2&&square(i-c)+ square(j-c2)>=r
+            || square(i-c2)+ square(j-c)<=r2&&square(i-c2)+ square(j-c)>=r
+            || square(i-c)+ square(j-(image.height-c2))<=r2&&square(i-c)+ square(j-image.height+c2)>=r
+            || square(i-(image.width-c2))+ square(j-c)<=r2&&square(i-(image.width-c2))+ square(j-c)>=r
+            || square(i-(image.width-c))+ square(j-c2)<=r2&&square(i-(image.width-c))+ square(j-c2)>=r
+            || square(i-c2)+ square(j-(image.height-c))<=r2&&square(i-c2)+ square(j-image.height+c)>=r
+            || square(i-(image.width-c2))+ square(j-(image.height-c))<=r2&&square(i-(image.width-c2))+ square(j-image.height+c)>=r
+            || square(i-(image.width-c))+ square(j-(image.height-c2))<=r2&&square(i-(image.width-c))+ square(j-image.height+c2)>=r
+            ){
+                //The white part
+                image(i,j,0)=255;
+                image(i,j,1)=255;
+                image(i,j,2)=255;
+            }
+        }
+    }
+    string nameImage = "NewFancyFrame_6.jpg";
+    image.saveImage(nameImage);
+    system(nameImage.c_str());
+    return 0;
+}
+*/
+//////////////////////////////////////////////////////////////////////////////////////////
