@@ -652,13 +652,22 @@ background-color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
-      <width>431</width>
-      <height>20</height>
+      <y>10</y>
+      <width>101</width>
+      <height>71</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::FocusPolicy::NoFocus</enum>
+    </property>
     <property name="text">
-     <string>                                                Filters</string>
+     <string> Filters</string>
     </property>
    </widget>
    <widget class="QTreeView" name="treeView">
@@ -674,8 +683,8 @@ background-color: rgb(0, 0, 0);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>680</x>
-      <y>210</y>
+      <x>670</x>
+      <y>230</y>
       <width>331</width>
       <height>111</height>
      </rect>
