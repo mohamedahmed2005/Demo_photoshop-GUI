@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1259</width>
-    <height>709</height>
+    <width>1141</width>
+    <height>697</height>
    </rect>
   </property>
   <property name="cursor">
@@ -16,9 +16,23 @@
   <property name="windowTitle">
    <string>demo_photoshop</string>
   </property>
+  <property name="statusTip">
+   <string>hi</string>
+  </property>
+  <property name="whatsThis">
+   <string>hii</string>
+  </property>
+  <property name="accessibleName">
+   <string>hii</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LayoutDirection::LeftToRight</enum>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(27, 38, 98);
-</string>
+   <string notr="true"/>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonStyle::ToolButtonFollowStyle</enum>
@@ -27,61 +41,17 @@
    <bool>true</bool>
   </property>
   <property name="tabShape">
-   <enum>QTabWidget::TabShape::Triangular</enum>
+   <enum>QTabWidget::TabShape::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QToolButton" name="toolButton">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>1140</x>
-      <y>620</y>
-      <width>91</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(0, 0, 255);
-background-color: rgb(0, 0, 0);</string>
-    </property>
-    <property name="text">
-     <string>Apply</string>
-    </property>
-    <property name="checkable">
-     <bool>false</bool>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
-    </property>
-    <property name="autoExclusive">
-     <bool>false</bool>
-    </property>
-    <property name="autoRepeatInterval">
-     <number>300</number>
-    </property>
-    <property name="popupMode">
-     <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
-    </property>
-    <property name="toolButtonStyle">
-     <enum>Qt::ToolButtonStyle::ToolButtonFollowStyle</enum>
-    </property>
-    <property name="autoRaise">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QToolButton" name="toolButton_2">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>1030</x>
-      <y>620</y>
+      <x>610</x>
+      <y>840</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -94,7 +64,7 @@ background-color: rgb(0, 0, 0);</string>
 background-color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Cancel</string>
+     <string>Save Image</string>
     </property>
     <property name="checkable">
      <bool>false</bool>
@@ -118,311 +88,548 @@ background-color: rgb(0, 0, 0);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QToolButton" name="toolButton_5">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>40</y>
-      <width>83</width>
-      <height>29</height>
+      <x>720</x>
+      <y>840</y>
+      <width>100</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(85, 170, 127);
-background-color: rgb(84, 80, 129);</string>
+     <string notr="true">background-color: rgb(0, 0, 255);
+background-color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
-     <string>Undo</string>
+     <string>Delete Image</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>300</number>
+    </property>
+    <property name="popupMode">
+     <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonStyle::ToolButtonFollowStyle</enum>
+    </property>
+    <property name="autoRaise">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QToolButton" name="toolButton_4">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>40</y>
-      <width>83</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(84, 80, 129);</string>
-    </property>
-    <property name="text">
-     <string>Redo</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>100</y>
-      <width>92</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Grayscale</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_2">
-    <property name="geometry">
-     <rect>
-      <x>940</x>
-      <y>100</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Black_White</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_3">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>140</y>
-      <width>93</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Invert</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_4">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>140</y>
-      <width>93</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Merge</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_5">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>100</y>
-      <width>93</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Flip</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_6">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>140</y>
-      <width>93</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Rotate</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_7">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>220</y>
-      <width>241</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Darken and Lighten Image</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_8">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>180</y>
-      <width>93</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Crop</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_9">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>100</y>
-      <width>93</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Frame</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_10">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>100</y>
-      <width>117</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Detect Edges</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_11">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>140</y>
-      <width>71</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Resize</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_12">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>140</y>
-      <width>93</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Blur</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_13">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>180</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Purple</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_14">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>180</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Infra_Red</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_15">
-    <property name="geometry">
-     <rect>
-      <x>940</x>
-      <y>140</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Sunny</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_16">
-    <property name="geometry">
-     <rect>
-      <x>940</x>
-      <y>180</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Oil_painting</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_17">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>180</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Ball</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_18">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>180</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Pixelate</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_19">
-    <property name="geometry">
-     <rect>
-      <x>630</x>
-      <y>100</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Rain_drop</string>
-    </property>
-   </widget>
-   <widget class="QCheckBox" name="checkBox_20">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>220</y>
-      <width>111</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Skew</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="toolButton_3">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>620</y>
+      <x>1600</x>
+      <y>850</y>
       <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 255);
+background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Clear Filters</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>300</number>
+    </property>
+    <property name="popupMode">
+     <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonStyle::ToolButtonFollowStyle</enum>
+    </property>
+    <property name="autoRaise">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton_6">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>840</y>
+      <width>90</width>
       <height>27</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Add image</string>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 255);
+background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Add Image</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>300</number>
+    </property>
+    <property name="popupMode">
+     <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonStyle::ToolButtonFollowStyle</enum>
+    </property>
+    <property name="autoRaise">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="toolButton">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1460</x>
+      <y>850</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 255);
+background-color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Apply Filter</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeatInterval">
+     <number>300</number>
+    </property>
+    <property name="popupMode">
+     <enum>QToolButton::ToolButtonPopupMode::DelayedPopup</enum>
+    </property>
+    <property name="toolButtonStyle">
+     <enum>Qt::ToolButtonStyle::ToolButtonFollowStyle</enum>
+    </property>
+    <property name="autoRaise">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>540</y>
+      <width>231</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Apply Filter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>Clear Filter</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>530</y>
+      <width>160</width>
+      <height>103</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Add Image</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="text">
+        <string>Save Image</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="text">
+        <string>Delete Image</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTreeView" name="treeView_2">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>10</y>
+      <width>321</width>
+      <height>391</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>430</y>
+      <width>181</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Show Original Image</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>250</y>
+      <width>160</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Orientation::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>290</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QToolBox" name="toolBox">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>431</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>431</width>
+       <height>331</height>
+      </rect>
+     </property>
+     <attribute name="label">
+      <string>Colors</string>
+     </attribute>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBox_3">
+        <property name="text">
+         <string>invert_image</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QCheckBox" name="checkBox_14">
+        <property name="text">
+         <string>sunny</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QCheckBox" name="checkBox_15">
+        <property name="text">
+         <string>oil_painting</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QCheckBox" name="checkBox_11">
+        <property name="text">
+         <string>Infra_Red</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QCheckBox" name="checkBox_9">
+        <property name="text">
+         <string>lighten_darken</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QCheckBox" name="checkBox_7">
+        <property name="text">
+         <string>grayscale</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QCheckBox" name="checkBox">
+        <property name="text">
+         <string>purple</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QCheckBox" name="checkBox_2">
+        <property name="text">
+         <string>black_white</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_16">
+        <property name="text">
+         <string>TV</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>213</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <attribute name="label">
+      <string>Frames</string>
+     </attribute>
+     <layout class="QGridLayout" name="gridLayout_4">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBox_19">
+        <property name="text">
+         <string>rotate_frame</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QCheckBox" name="checkBox_10">
+        <property name="text">
+         <string>Frame</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_27">
+        <property name="text">
+         <string>Heart</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="page_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>249</width>
+       <height>213</height>
+      </rect>
+     </property>
+     <attribute name="label">
+      <string>Snatching</string>
+     </attribute>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBox_17">
+        <property name="text">
+         <string>Cardiod</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QCheckBox" name="checkBox_21">
+        <property name="text">
+         <string>Wave</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_24">
+        <property name="text">
+         <string>Egg</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="checkBox_18">
+        <property name="text">
+         <string>center_light</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="checkBox_25">
+        <property name="text">
+         <string>Rain_drop</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QCheckBox" name="checkBox_53">
+        <property name="text">
+         <string>rotate_camera</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QCheckBox" name="checkBox_23">
+        <property name="text">
+         <string>Pixelate</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QCheckBox" name="checkBox_26">
+        <property name="text">
+         <string>Skew</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QCheckBox" name="checkBox_22">
+        <property name="text">
+         <string>Ball</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>257</width>
+       <height>147</height>
+      </rect>
+     </property>
+     <attribute name="label">
+      <string>Editing</string>
+     </attribute>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QCheckBox" name="checkBox_8">
+        <property name="text">
+         <string>merge</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QCheckBox" name="checkBox_5">
+        <property name="text">
+         <string>crop</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QCheckBox" name="checkBox_13">
+        <property name="text">
+         <string>blur</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="checkBox_6">
+        <property name="text">
+         <string>rotate_image</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="checkBox_4">
+        <property name="text">
+         <string>flip</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QCheckBox" name="checkBox_12">
+        <property name="text">
+         <string>detect_edge</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -430,13 +637,40 @@ background-color: rgb(84, 80, 129);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1259</width>
+     <width>1141</width>
      <height>25</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
+ <tabstops>
+  <tabstop>toolButton_2</tabstop>
+  <tabstop>toolButton_5</tabstop>
+  <tabstop>toolButton_4</tabstop>
+  <tabstop>toolButton_6</tabstop>
+  <tabstop>toolButton</tabstop>
+ </tabstops>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>horizontalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>lcdNumber</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>281</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>147</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>signal1(int)</signal>
+ </slots>
 </ui>
