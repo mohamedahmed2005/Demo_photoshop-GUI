@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1141</width>
-    <height>697</height>
+    <height>837</height>
    </rect>
   </property>
   <property name="cursor">
@@ -17,13 +17,13 @@
    <string>demo_photoshop</string>
   </property>
   <property name="statusTip">
-   <string>hi</string>
+   <string/>
   </property>
   <property name="whatsThis">
-   <string>hii</string>
+   <string/>
   </property>
   <property name="accessibleName">
-   <string>hii</string>
+   <string/>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LayoutDirection::LeftToRight</enum>
@@ -65,6 +65,9 @@ background-color: rgb(0, 0, 0);</string>
     </property>
     <property name="text">
      <string>Save Image</string>
+    </property>
+    <property name="icon">
+     <iconset theme="QIcon::ThemeIcon::DocumentSave"/>
     </property>
     <property name="checkable">
      <bool>false</bool>
@@ -267,8 +270,8 @@ background-color: rgb(0, 0, 0);</string>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>540</y>
+      <x>10</x>
+      <y>690</y>
       <width>231</width>
       <height>91</height>
      </rect>
@@ -279,12 +282,18 @@ background-color: rgb(0, 0, 0);</string>
        <property name="text">
         <string>Apply Filter</string>
        </property>
+       <property name="icon">
+        <iconset theme="QIcon::ThemeIcon::MediaPlaybackStart"/>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_3">
        <property name="text">
         <string>Clear Filter</string>
+       </property>
+       <property name="icon">
+        <iconset theme="QIcon::ThemeIcon::WindowClose"/>
        </property>
       </widget>
      </item>
@@ -294,7 +303,7 @@ background-color: rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>970</x>
-      <y>530</y>
+      <y>680</y>
       <width>160</width>
       <height>103</height>
      </rect>
@@ -305,12 +314,18 @@ background-color: rgb(0, 0, 0);</string>
        <property name="text">
         <string>Add Image</string>
        </property>
+       <property name="icon">
+        <iconset theme="QIcon::ThemeIcon::DocumentSend"/>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_5">
        <property name="text">
         <string>Save Image</string>
+       </property>
+       <property name="icon">
+        <iconset theme="QIcon::ThemeIcon::DocumentSave"/>
        </property>
       </widget>
      </item>
@@ -319,75 +334,32 @@ background-color: rgb(0, 0, 0);</string>
        <property name="text">
         <string>Delete Image</string>
        </property>
+       <property name="icon">
+        <iconset theme="QIcon::ThemeIcon::EditClear"/>
+       </property>
       </widget>
      </item>
     </layout>
    </widget>
-   <widget class="QTreeView" name="treeView_2">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>10</y>
-      <width>321</width>
-      <height>391</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton">
-    <property name="geometry">
-     <rect>
-      <x>660</x>
-      <y>430</y>
-      <width>181</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Show Original Image</string>
-    </property>
-   </widget>
-   <widget class="QSlider" name="horizontalSlider">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>250</y>
-      <width>160</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Orientation::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QLCDNumber" name="lcdNumber">
-    <property name="geometry">
-     <rect>
-      <x>920</x>
-      <y>290</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QToolBox" name="toolBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>10</y>
+      <x>20</x>
+      <y>80</y>
       <width>431</width>
       <height>471</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>431</width>
-       <height>331</height>
+       <width>128</width>
+       <height>339</height>
       </rect>
      </property>
      <attribute name="label">
@@ -395,65 +367,65 @@ background-color: rgb(0, 0, 0);</string>
      </attribute>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_3">
+       <widget class="QPushButton" name="pushButton_3">
         <property name="text">
          <string>invert_image</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QCheckBox" name="checkBox_14">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="pushButton_16">
         <property name="text">
-         <string>sunny</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QCheckBox" name="checkBox_15">
-        <property name="text">
-         <string>oil_painting</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QCheckBox" name="checkBox_11">
-        <property name="text">
-         <string>Infra_Red</string>
+         <string>TV</string>
         </property>
        </widget>
       </item>
       <item row="7" column="0">
-       <widget class="QCheckBox" name="checkBox_9">
+       <widget class="QPushButton" name="pushButton_9">
         <property name="text">
          <string>lighten_darken</string>
         </property>
        </widget>
       </item>
-      <item row="9" column="0">
-       <widget class="QCheckBox" name="checkBox_7">
+      <item row="6" column="0">
+       <widget class="QPushButton" name="pushButton_11">
         <property name="text">
-         <string>grayscale</string>
+         <string>Infra_Red</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
-       <widget class="QCheckBox" name="checkBox">
+      <item row="5" column="0">
+       <widget class="QPushButton" name="pushButton_15">
         <property name="text">
-         <string>purple</string>
+         <string>oil_painting</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QCheckBox" name="checkBox_2">
+       <widget class="QPushButton" name="pushButton_2">
         <property name="text">
          <string>black_white</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="checkBox_16">
+      <item row="4" column="0">
+       <widget class="QPushButton" name="pushButton_14">
         <property name="text">
-         <string>TV</string>
+         <string>sunny</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>purple</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="text">
+         <string>grayscale</string>
         </property>
        </widget>
       </item>
@@ -464,8 +436,8 @@ background-color: rgb(0, 0, 0);</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>213</width>
-       <height>81</height>
+       <width>203</width>
+       <height>87</height>
       </rect>
      </property>
      <attribute name="label">
@@ -473,21 +445,21 @@ background-color: rgb(0, 0, 0);</string>
      </attribute>
      <layout class="QGridLayout" name="gridLayout_4">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_19">
+       <widget class="QPushButton" name="pushButton_19">
         <property name="text">
          <string>rotate_frame</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkBox_10">
+       <widget class="QPushButton" name="pushButton_10">
         <property name="text">
          <string>Frame</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QCheckBox" name="checkBox_27">
+       <widget class="QPushButton" name="pushButton_27">
         <property name="text">
          <string>Heart</string>
         </property>
@@ -500,8 +472,8 @@ background-color: rgb(0, 0, 0);</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>249</width>
-       <height>213</height>
+       <width>213</width>
+       <height>195</height>
       </rect>
      </property>
      <attribute name="label">
@@ -509,63 +481,63 @@ background-color: rgb(0, 0, 0);</string>
      </attribute>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_17">
+       <widget class="QPushButton" name="pushButton_17">
         <property name="text">
          <string>Cardiod</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkBox_21">
+       <widget class="QPushButton" name="pushButton_21">
         <property name="text">
          <string>Wave</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QCheckBox" name="checkBox_24">
+       <widget class="QPushButton" name="pushButton_24">
         <property name="text">
          <string>Egg</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QCheckBox" name="checkBox_18">
+       <widget class="QPushButton" name="pushButton_18">
         <property name="text">
          <string>center_light</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="checkBox_25">
-        <property name="text">
-         <string>Rain_drop</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1">
-       <widget class="QCheckBox" name="checkBox_53">
+       <widget class="QPushButton" name="pushButton_53">
         <property name="text">
          <string>rotate_camera</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QCheckBox" name="checkBox_23">
+      <item row="2" column="0">
+       <widget class="QPushButton" name="pushButton_25">
+        <property name="text">
+         <string>Rain_drop</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="pushButton_23">
         <property name="text">
          <string>Pixelate</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QCheckBox" name="checkBox_26">
+      <item row="3" column="0">
+       <widget class="QPushButton" name="pushButton_26">
         <property name="text">
          <string>Skew</string>
         </property>
        </widget>
       </item>
       <item row="5" column="0">
-       <widget class="QCheckBox" name="checkBox_22">
+       <widget class="QPushButton" name="pushButton_22">
         <property name="text">
          <string>Ball</string>
         </property>
@@ -578,8 +550,8 @@ background-color: rgb(0, 0, 0);</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>257</width>
-       <height>147</height>
+       <width>431</width>
+       <height>331</height>
       </rect>
      </property>
      <attribute name="label">
@@ -587,49 +559,107 @@ background-color: rgb(0, 0, 0);</string>
      </attribute>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QCheckBox" name="checkBox_8">
+       <widget class="QPushButton" name="pushButton_8">
         <property name="text">
          <string>merge</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="checkBox_5">
+       <widget class="QPushButton" name="pushButton_5">
         <property name="text">
          <string>crop</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QCheckBox" name="checkBox_13">
-        <property name="text">
-         <string>blur</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="1">
-       <widget class="QCheckBox" name="checkBox_6">
+       <widget class="QPushButton" name="pushButton_6">
         <property name="text">
          <string>rotate_image</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="checkBox_4">
+      <item row="1" column="0">
+       <widget class="QPushButton" name="pushButton_13">
         <property name="text">
-         <string>flip</string>
+         <string>blur</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QCheckBox" name="checkBox_12">
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButton_12">
         <property name="text">
          <string>detect_edge</string>
         </property>
        </widget>
       </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="text">
+         <string>flip</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>480</y>
+      <width>169</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <widget class="QPushButton" name="pushButton_20">
+       <property name="text">
+        <string>Redo</string>
+       </property>
+       <property name="icon">
+        <iconset theme="QIcon::ThemeIcon::EditRedo"/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_28">
+       <property name="text">
+        <string>Undo</string>
+       </property>
+       <property name="icon">
+        <iconset theme="QIcon::ThemeIcon::EditUndo"/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>431</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>                                                Filters</string>
+    </property>
+   </widget>
+   <widget class="QTreeView" name="treeView">
+    <property name="geometry">
+     <rect>
+      <x>585</x>
+      <y>11</y>
+      <width>511</width>
+      <height>441</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -652,24 +682,7 @@ background-color: rgb(0, 0, 0);</string>
   <tabstop>toolButton</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>horizontalSlider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>lcdNumber</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>113</x>
-     <y>281</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>147</x>
-     <y>319</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
  <slots>
   <signal>signal1(int)</signal>
  </slots>
