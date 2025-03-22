@@ -70,5 +70,5 @@
 - [Youssef Amgad Elkhatib](https://github.com/YoussefElkhatib)
 - [Mohamed Ahmed](https://github.com/mohamedahmed2005)
 - [Amr Khaled Ahmed](https://github.com/Amr-Khaled-Ahmed)
-- [Ahmed Ibrahim](https://github.com/Amr-Khaled-Ahmed)
-- [Mostafa Mahmoud](https://github.com/Amr-Khaled-Ahmed)
+- [Ahmed Ibrahim](https://github.com/AhmedIbrahimFCAL)
+- [Mostafa Mahmoud](https://github.com/mostafa-mahmoud-fathy)
