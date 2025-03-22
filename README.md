@@ -61,25 +61,8 @@
     <li>Pixelate</li>
 </ul>
 
-<h2>Installation</h2>
-<p>To run Visual Vortex, follow these steps:</p>
-<ol>
-    <li>Clone the repository: <code>git clone https://github.com/your-repo/visual-vortex.git</code></li>
-    <li>Open the project in <strong>Qt Creator</strong>.</li>
-    <li>Build and run the application.</li>
-</ol>
 
-<h2>Usage</h2>
-<ol>
-    <li>Load an image into the application.</li>
-    <li>Select a filter from the categorized list.</li>
-    <li>Apply multiple filters for advanced editing.</li>
-    <li>Use undo/redo to manage changes.</li>
-    <li>Save or export the final image.</li>
-</ol>
 
 <h2>Contributors</h2>
-<p>Developed by <strong>Visual Vortex Team</strong>.</p>
 
-<h2>License</h2>
-<p>Released under the MIT License.</p>
+
