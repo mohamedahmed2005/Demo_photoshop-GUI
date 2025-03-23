@@ -4,10 +4,9 @@
 <p><strong>Visual Vortex</strong> is a feature-rich GUI-based Photoshop application built using <strong>Qt Creator C++</strong>. It offers a vast selection of 27 different filters, advanced image editing functionalities, and an intuitive user experience for seamless photo manipulation.</p>
 
 </br>
-<h2>🎥 Watch the demo video</h2>
-<video>
-    <source src="https://www.youtube.com/watch?v=IqyvwpV0X2A&t=957s" type="video/mp4">
-</video>
+<h2>🎥 Watch the video</h2>
+[![Visual Vortex]()](https://www.youtube.com/watch?v=IqyvwpV0X2A&t=957s)
+
 
 <h2>✨ Features</h2>
 <ul>
