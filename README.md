@@ -26,7 +26,7 @@
 </ul>
 
 </br>
-<h2>Filter Categories</h2>
+<h2>🚀 Filter Categories</h2>
 
 <h3>1. 🎨Colours (9 Filters)</h3>
 <ul>
