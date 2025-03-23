@@ -5,7 +5,7 @@
 
 </br>
 <h2>🎥 Watch the video</h2>
-[![Visual Vortex](https://i9.ytimg.com/vi/IqyvwpV0X2A/hqdefault.jpg?v=6706e743&sqp=CJSDgb8G&rs=AOn4CLDg9Pci6c0bC2zbhUW5Fs1s7IAe6w)](https://www.youtube.com/watch?v=IqyvwpV0X2A&t=957s)
+[![Visual Vortex](https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?cs=srgb&dl=pexels-pixabay-147411.jpg&fm=jpg)](https://www.youtube.com/watch?v=IqyvwpV0X2A&t=957s)
 
 
 <h2>✨ Features</h2>
