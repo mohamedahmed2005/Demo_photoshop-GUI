@@ -11,6 +11,7 @@
     <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?cs=srgb&dl=pexels-pixabay-147411.jpg&fm=jpg" alt="Watch the video" width="600">
   </a>
 </p>
+</br>
 <h2>✨ Features</h2>
 <ul>
     <li><strong>Apply 27 Different Filters</strong> - A diverse set of filters categorized into four sections.</li>
@@ -75,7 +76,7 @@
 <p>
 We would like to thank our professor, Dr. Mohamed El-Ramly, for his guidance and support throughout this project and our academic journey. We are grateful for the opportunity to work on this project and develop our programming skills.
 </p>
-
+</br>
 <h2>✍️ Authors</h2>
 
 - [Youssef Amgad Elkhatib](https://github.com/YoussefElkhatib)
