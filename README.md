@@ -1,10 +1,17 @@
-<h1>Visual Vortex</h1>
+<h1>🌀 Visual Vortex</h1>
 
-<h2>Overview</h2>
+<h2>📖 Overview</h2>
 <p><strong>Visual Vortex</strong> is a feature-rich GUI-based Photoshop application built using <strong>Qt Creator C++</strong>. It offers a vast selection of 27 different filters, advanced image editing functionalities, and an intuitive user experience for seamless photo manipulation.</p>
 
 </br>
-<h2>Features</h2>
+<h2>🎥 Watch the video</h2>
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=IqyvwpV0X2A">
+    <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?cs=srgb&dl=pexels-pixabay-147411.jpg&fm=jpg" alt="Watch the video" width="600">
+  </a>
+</p>
+<h2>✨ Features</h2>
 <ul>
     <li><strong>Apply 27 Different Filters</strong> - A diverse set of filters categorized into four sections.</li>
     <li><strong>Clear Filters</strong> - Remove all applied filters and restore the original image.</li>
@@ -21,7 +28,7 @@
 </br>
 <h2>Filter Categories</h2>
 
-<h3>1. Colours (9 Filters)</h3>
+<h3>1. 🎨Colours (9 Filters)</h3>
 <ul>
     <li>Invert Image</li>
     <li>TV Effect</li>
@@ -34,7 +41,7 @@
     <li>Grayscale</li>
 </ul>
 
-<h3>2. Frames (6 Filters)</h3>
+<h3>2. 🖼️Frames (6 Filters)</h3>
 <ul>
     <li>Rotate Frame</li>
     <li>Rotate Image</li>
@@ -44,7 +51,7 @@
     <li>Heart Frame</li>
 </ul>
 
-<h3>3. Editing (6 Filters)</h3>
+<h3>3. ✏️Editing (6 Filters)</h3>
 <ul>
     <li>Crop</li>
     <li>Edge Detection</li>
@@ -54,7 +61,7 @@
     <li>Flip</li>
 </ul>
 
-<h3>4. Miscellaneous (5 Filters)</h3>
+<h3>4. 🛠Miscellaneous (5 Filters)</h3>
 <ul>
     <li>Wave Effect</li>
     <li>Center Light</li>
@@ -64,8 +71,12 @@
 </ul>
 
 </br>
+<h2>🌟 Acknowledgments</h2>
+<p>
+We would like to thank our professor, Dr. Mohamed El-Ramly, for his guidance and support throughout this project and our academic journey. We are grateful for the opportunity to work on this project and develop our programming skills.
+</p>
 
-<h2>Contributors</h2>
+<h2>✍️ Authors</h2>
 
 - [Youssef Amgad Elkhatib](https://github.com/YoussefElkhatib)
 - [Mohamed Ahmed](https://github.com/mohamedahmed2005)
