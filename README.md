@@ -5,9 +5,12 @@
 
 </br>
 <h2>🎥 Watch the video</h2>
-[![Visual Vortex](https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?cs=srgb&dl=pexels-pixabay-147411.jpg&fm=jpg)](https://www.youtube.com/watch?v=IqyvwpV0X2A&t=957s)
 
-
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=IqyvwpV0X2A">
+    <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Watch the video" width="600">
+  </a>
+</p>
 <h2>✨ Features</h2>
 <ul>
     <li><strong>Apply 27 Different Filters</strong> - A diverse set of filters categorized into four sections.</li>
