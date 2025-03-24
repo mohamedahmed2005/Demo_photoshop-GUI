@@ -6,11 +6,8 @@
 </br>
 <h2>🎥 Watch the video</h2>
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=IqyvwpV0X2A">
-    <img src="https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?cs=srgb&dl=pexels-pixabay-147411.jpg&fm=jpg" alt="Watch the video" width="600">
-  </a>
-</p>
+[![Visual Vortex Photoshop Application](https://ytcards.demolab.com/?id=IqyvwpV0X2A&title=Visual+Vortex+Photoshop+Application&lang=en&timestamp=1728476982&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=2&width=600&border_radius=5&duration=1155 "Visual Vortex Photoshop Application")](https://youtu.be/Wjj21p3tvcg?si=b7QYksN87h0wsGpQ)
+
 </br>
 <h2>✨ Features</h2>
 <ul>
